@@ -9,7 +9,7 @@ local CoreGui = game:GetService("CoreGui")
 local UserId = game.Players.LocalPlayer.UserId
 local uneverseId = game.GameId
 
-local notif = loadstring(game:HttpGet("https://raw.githubusercontent.com/HoyoGey/My-Lua-Project/main/UiLibs/NotifyLib.lua"))()
+local notif = loadstring(game:HttpGet("https://raw.githubusercontent.com/CheapeeWastaken/Lazium/main/Notify"))()
 
 local KeyUI = game:GetObjects("rbxassetid://12690778020")[1]
 
