@@ -29,9 +29,9 @@ local KeyMain = KeyUI.Main
 function Keysys:MakeUI(KeySettings)
     -- Title, KeyLink, DiscordLink, ScriptLink
     KeySettings.Title = KeySettings.Title or "Title"
-    KeySettings.DiscordLink = KeySettings.DiscordLink or "Not Have"
+    KeySettings.DiscordLink = KeySettings.DiscordLink or "bit.ly/LaziumKey"
     KeySettings.ScriptLink = KeySettings.ScriptLink or ""
-    KeySettings.FileKey = KeySettings.FileKey or "KeySystem.lua"
+    KeySettings.FileKey = KeySettings.FileKey or "LaziumStuff.lua"
 
     KeyMain.Size = UDim2.new(0, 467, 0, 175)
     KeyMain.BackgroundTransparency = 1
@@ -140,7 +140,7 @@ function Keysys:MakeUI(KeySettings)
 
     KeyMain.NoteMessage.DiscordBtn.MouseEnter:Connect(function()
         TweenService:Create(KeyMain.NoteMessage.DiscordBtn, TweenInfo.new(0.6, Enum.EasingStyle.Quint),
-            { TextColor3 = Color3.fromRGB(23, 30, 227) }):Play()
+            { TextColor3 = Color3.fromRGB(23, 187, 228) }):Play()
     end)
 
     KeyMain.NoteMessage.DiscordBtn.MouseLeave:Connect(function()
