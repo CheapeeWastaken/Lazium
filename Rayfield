@@ -31,7 +31,7 @@ function Keysys:MakeUI(KeySettings)
     KeySettings.Title = KeySettings.Title or "Title"
     KeySettings.DiscordLink = KeySettings.DiscordLink or "Not Have"
     KeySettings.ScriptLink = KeySettings.ScriptLink or ""
-    KeySettings.FileKey = KeySettings.FileKey or "KeySystem.lua"
+    KeySettings.FileKey = KeySettings.FileKey or "LaziumStuff.lua"
 
     KeyMain.Size = UDim2.new(0, 467, 0, 175)
     KeyMain.BackgroundTransparency = 1
