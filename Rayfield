@@ -140,7 +140,7 @@ function Keysys:MakeUI(KeySettings)
 
     KeyMain.NoteMessage.DiscordBtn.MouseEnter:Connect(function()
         TweenService:Create(KeyMain.NoteMessage.DiscordBtn, TweenInfo.new(0.6, Enum.EasingStyle.Quint),
-            { TextColor3 = Color3.fromRGB(23, 30, 227) }):Play()
+            { TextColor3 = Color3.fromRGB(23, 228, 228) }):Play()
     end)
 
     KeyMain.NoteMessage.DiscordBtn.MouseLeave:Connect(function()
