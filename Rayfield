@@ -154,7 +154,7 @@ function Keysys:MakeUI(KeySettings)
         if is_key_present == true then
             local kery = readfile(KeySettings.FileKey);
             local onl_key = game:HttpGet("https://1.kelprepl.repl.co/verify/" ..
-                KeySettings.KeyLinkName .. "?verify_key=" .. kery)
+                KeySettings.KeyLinkName .. "?verify_key=" ..kery)
             if kery == onl_key then
                 notif:Notification("Successful", "Key valid lets start", 3)
                 loadstring(game:HttpGet(KeySettings.ScriptLink))()
@@ -397,7 +397,7 @@ function Keysys:MakeUI(KeySettings)
     if is_key_present == true then
         local kery = readfile(KeySettings.Title .. ".txt");
         local onl_key = game:HttpGet("https://1.kelprepl.repl.co/verify/" ..
-            KeySettings.KeyLinkName .. "?verify_key=" .. kery)
+            KeySettings.KeyLinkName .. "?verify_key=" ..kery)
         if kery == onl_key then
             notif:Notification("Successful", "Key valid lets start", 3)
             loadstring(game:HttpGet(KeySettings.ScriptLink))()
