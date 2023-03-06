@@ -324,7 +324,7 @@ function Keysys:MakeUI(KeySettings)
                     readfilekey then -- check key on maked file
                     loadstring(game:HttpGet(KeySettings.ScriptLink))()
                     notif:Notification("Successful", "Key valid lets start", 3)
-                    appendfile(KeySettings.Title .. ".txt", KeyMain.Input.InputBox.Text);
+                    appendfile(KeySettings.Title .. ".lua", KeyMain.Input.InputBox.Text);
                     TweenService:Create(KeyMain, TweenInfo.new(0.6, Enum.EasingStyle.Quint),
                         { BackgroundTransparency = 1 })
                         :
@@ -393,9 +393,9 @@ function Keysys:MakeUI(KeySettings)
             { Color = Color3.fromRGB(35, 35, 35) }):Play()
     end)
 
-    local is_key_present = isfile(KeySettings.Title .. ".txt");
+    local is_key_present = isfile(KeySettings.Title .. ".lua");
     if is_key_present == true then
-        local kery = readfile(KeySettings.Title .. ".txt");
+        local key = readfile(KeySettings.Title .. ".lua");
         local onl_key = game:HttpGet("https://1.kelprepl.repl.co/verify/" ..
             KeySettings.KeyLinkName .. "?verify_key=" ..kery)
         if kery == onl_key then
