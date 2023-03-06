@@ -29,9 +29,9 @@ local KeyMain = KeyUI.Main
 function Keysys:MakeUI(KeySettings)
     -- Title, KeyLink, DiscordLink, ScriptLink
     KeySettings.Title = KeySettings.Title or "Title"
-    KeySettings.DiscordLink = KeySettings.DiscordLink or "bit.ly/LaziumKey"
+    KeySettings.DiscordLink = KeySettings.DiscordLink or "Not Have"
     KeySettings.ScriptLink = KeySettings.ScriptLink or ""
-    KeySettings.FileKey = KeySettings.FileKey or "LaziumStuff.lua"
+    KeySettings.FileKey = KeySettings.FileKey or "KeySystem.lua"
 
     KeyMain.Size = UDim2.new(0, 467, 0, 175)
     KeyMain.BackgroundTransparency = 1
@@ -140,7 +140,7 @@ function Keysys:MakeUI(KeySettings)
 
     KeyMain.NoteMessage.DiscordBtn.MouseEnter:Connect(function()
         TweenService:Create(KeyMain.NoteMessage.DiscordBtn, TweenInfo.new(0.6, Enum.EasingStyle.Quint),
-            { TextColor3 = Color3.fromRGB(23, 187, 228) }):Play()
+            { TextColor3 = Color3.fromRGB(23, 30, 227) }):Play()
     end)
 
     KeyMain.NoteMessage.DiscordBtn.MouseLeave:Connect(function()
@@ -157,7 +157,7 @@ function Keysys:MakeUI(KeySettings)
                 KeySettings.KeyLinkName .. "?verify_key=" .. kery)
             if kery == onl_key then
                 notif:Notification("Successful", "Key valid lets start", 3)
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/CheapeeWastaken/Lazium/main/Checker"))()
+                loadstring(game:HttpGet(KeySettings.ScriptLink))()
                 TweenService:Create(KeyMain, TweenInfo.new(0.6, Enum.EasingStyle.Quint), { BackgroundTransparency = 1 })
                     :
                     Play()
@@ -261,7 +261,7 @@ function Keysys:MakeUI(KeySettings)
                 if KeyMain.Input.InputBox.Text ==
                     game:HttpGet("https://1.kelprepl.repl.co/verify/" ..
                         KeySettings.KeyLinkName .. "?verify_key=" .. KeyMain.Input.InputBox.Text) then -- checkkey no have file
-                            loadstring(game:HttpGet("https://raw.githubusercontent.com/CheapeeWastaken/Lazium/main/Checker"))()
+                    loadstring(game:HttpGet(KeySettings.ScriptLink))()
                     appendfile(KeySettings.FileKey, KeyMain.Input.InputBox.Text);
                     notif:Notification("Successful", "Key valid lets start", 3)
                     TweenService:Create(KeyMain, TweenInfo.new(0.6, Enum.EasingStyle.Quint),
@@ -322,8 +322,8 @@ function Keysys:MakeUI(KeySettings)
                     KeySettings.KeyLinkName .. "?verify_key=" .. KeyMain.Input.InputBox.Text)
                     ==
                     readfilekey then -- check key on maked file
-                        loadstring(game:HttpGet("https://raw.githubusercontent.com/CheapeeWastaken/Lazium/main/Checker"))()
-                        notif:Notification("Successful", "Key valid lets start", 3)
+                    loadstring(game:HttpGet(KeySettings.ScriptLink))()
+                    notif:Notification("Successful", "Key valid lets start", 3)
                     appendfile(KeySettings.Title .. ".txt", KeyMain.Input.InputBox.Text);
                     TweenService:Create(KeyMain, TweenInfo.new(0.6, Enum.EasingStyle.Quint),
                         { BackgroundTransparency = 1 })
@@ -398,9 +398,9 @@ function Keysys:MakeUI(KeySettings)
         local kery = readfile(KeySettings.Title .. ".txt");
         local onl_key = game:HttpGet("https://1.kelprepl.repl.co/verify/" ..
             KeySettings.KeyLinkName .. "?verify_key=" .. kery)
-            if kery == onl_key then
+        if kery == onl_key then
             notif:Notification("Successful", "Key valid lets start", 3)
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/CheapeeWastaken/Lazium/main/Checker"))()
+            loadstring(game:HttpGet(KeySettings.ScriptLink))()
             TweenService:Create(KeyMain, TweenInfo.new(0.6, Enum.EasingStyle.Quint), { BackgroundTransparency = 1 }):
                 Play()
             TweenService:Create(KeyMain, TweenInfo.new(0.6, Enum.EasingStyle.Quint), { Size = UDim2.new(0, 467, 0, 175) })
@@ -438,9 +438,8 @@ function Keysys:MakeUI(KeySettings)
                 Play()
             wait(0.51)
             KeyUI:Destroy()
-             else
+        else
             notif:Notification("Warning", "Key not valid try again", 3)
-           end
         end
     end
 
