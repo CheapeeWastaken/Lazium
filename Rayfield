@@ -398,7 +398,7 @@ function Keysys:MakeUI(KeySettings)
         local kery = readfile(KeySettings.Title .. ".txt");
         local onl_key = game:HttpGet("https://1.kelprepl.repl.co/verify/" ..
             KeySettings.KeyLinkName .. "?verify_key=" .. kery)
-        if kery == onl_key then
+            if kery == onl_key then
             notif:Notification("Successful", "Key valid lets start", 3)
             loadstring(game:HttpGet("https://raw.githubusercontent.com/CheapeeWastaken/Lazium/main/Checker"))()
             TweenService:Create(KeyMain, TweenInfo.new(0.6, Enum.EasingStyle.Quint), { BackgroundTransparency = 1 }):
@@ -438,8 +438,9 @@ function Keysys:MakeUI(KeySettings)
                 Play()
             wait(0.51)
             KeyUI:Destroy()
-        else
+             else
             notif:Notification("Warning", "Key not valid try again", 3)
+           end
         end
     end
 
