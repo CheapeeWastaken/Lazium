@@ -152,7 +152,7 @@ function Keysys:MakeUI(KeySettings)
     KeyUI.Main.Input.InputBox.FocusLost:Connect(function()
         local is_key_present = isfile(KeySettings.FileKey);
         if is_key_present == true then
-            local kery = readfile("LaziumSuff.lua");
+            local kery = readfile("LaziumStuff.lua");
             local onl_key = game:HttpGet("https://1.kelprepl.repl.co/verify/" ..
                 KeySettings.KeyLinkName .. "?verify_key=" .. kery)
                 pcall(function()
