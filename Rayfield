@@ -105,13 +105,17 @@ local RayfieldLibrary = {
 
 
 -- Services
-local Muffin = game:GetService("CoreGui")
+
+local MainGui = game.CoreGui
+local folder = Instance.new("Folder", MainGui)
+folder.Name = "LaziumTools"
+
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 local HttpService = game:GetService("HttpService")
 local RunService = game:GetService("RunService")
 local Players = game:GetService("Players")
-local CoreGui = Muffin
+local CoreGui = game.CoreGui.LaziumTools
 
 -- Interface Management
 local Rayfield = game:GetObjects("rbxassetid://10804731440")[1]
@@ -123,8 +127,8 @@ if gethui then
 elseif syn.protect_gui then 
 	syn.protect_gui(Rayfield)
 	Rayfield.Parent = CoreGui
-elseif CoreGui:FindFirstChild("RobloxGui") then
-	Rayfield.Parent = CoreGui:FindFirstChild("RobloxGui")
+elseif CoreGui.Parent.Parent:FindFirstChild("RobloxGui") then
+	Rayfield.Parent = CoreGui.Parent.Parent:FindFirstChild("RobloxGui")
 else
 	Rayfield.Parent = CoreGui
 end
@@ -241,7 +245,7 @@ end
 
 local function LoadConfiguration(Configuration)
 	local Data = HttpService:JSONDecode(Configuration)
-	table.foreach(Data, function(FlagName, FlagValue)
+	for FlagName, FlagValue in next, Data do
 		if RayfieldLibrary.Flags[FlagName] then
 			spawn(function() 
 				if RayfieldLibrary.Flags[FlagName].Type == "ColorPicker" then
@@ -253,7 +257,7 @@ local function LoadConfiguration(Configuration)
 		else
 			RayfieldLibrary:Notify({Title = "Flag Error", Content = "Rayfield was unable to find '"..FlagName.. "'' in the current script"})
 		end
-	end)
+	end
 end
 
 local function SaveConfiguration()
@@ -1901,7 +1905,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 			UserInputService.InputBegan:Connect(function(input, processed)
 
 				if CheckingForKey then
-					if input.KeyCode ~= Enum.KeyCode.Unknown and input.KeyCode ~= Enum.KeyCode.RightShift then
+					if input.KeyCode ~= Enum.KeyCode.Unknown and input.KeyCode ~= Enum.KeyCode.RightControl then
 						local SplitMessage = string.split(tostring(input.KeyCode), ".")
 						local NewKeyNoEnum = SplitMessage[3]
 						Keybind.KeybindFrame.KeybindBox.Text = tostring(NewKeyNoEnum)
@@ -2314,22 +2318,22 @@ Topbar.Hide.MouseButton1Click:Connect(function()
 	if Hidden then
 		Hidden = false
 		Minimised = false
-		Unhide()
+		game.CoreGui.LaziumTools.Rayfield.Visible = true
 	else
 		Hidden = true
-		Hide()
+		game.CoreGui.LaziumTools.Rayfield.Visible = false
 	end
 end)
 
 UserInputService.InputBegan:Connect(function(input, processed)
-	if (input.KeyCode == Enum.KeyCode.RightShift and not processed) then
+	if (input.KeyCode == Enum.KeyCode.RightControl and not processed) then
 		if Debounce then return end
 		if Hidden then
 			Hidden = false
-			Unhide()
+			game.CoreGui.LaziumTools.Rayfield.Main.Visible = true
 		else
 			Hidden = true
-			Hide()
+			game.CoreGui.LaziumTools.Rayfield.Main.Visible = false
 		end
 	end
 end)
@@ -2361,5 +2365,7 @@ function RayfieldLibrary:LoadConfiguration()
 		end)
 	end
 end
+
+task.delay(5, RayfieldLibrary.LoadConfiguration, RayfieldLibrary)
 
 return RayfieldLibrary
