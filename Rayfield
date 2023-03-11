@@ -2318,10 +2318,10 @@ Topbar.Hide.MouseButton1Click:Connect(function()
 	if Hidden then
 		Hidden = false
 		Minimised = false
-		game.CoreGui.LaziumTools.Rayfield.Visible = true
+		game.CoreGui.LaziumTools.Rayfield.Main.Visible = true
 	else
 		Hidden = true
-		game.CoreGui.LaziumTools.Rayfield.Visible = false
+		game.CoreGui.LaziumTools.Rayfield.Main.Visible = false
 	end
 end)
 
